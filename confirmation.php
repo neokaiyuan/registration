@@ -1,4 +1,5 @@
 <?php 
+  require 'PHPMailerAutoload.php'
   // Check if the "from" input field is filled out
   echo "Thank you for sending us feedback";
   if (isset($_POST["email"]))
@@ -13,5 +14,5 @@
     mail("kaiyuan.neo@gmail.com", $subject, $message, null, -f$from);
     }
 ?>
-
+<script> console.log('hello'); </script>
 <a href="http://svangel.com">SV Angel Homepage</a>
