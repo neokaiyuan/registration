@@ -18,14 +18,8 @@
     <![endif]-->
   </head>
   <body class="site-frame">
-    <div>
-    <?php
-      // display form if user has not clicked submit
-      if (!isset($_POST["submit"]))
-      {
-    ?>
       <h1>Register for sf.citi</h1>
-      <form role="form" name="signup-form" action="/" method="POST">
+      <form role="form" name="signup-form" action="/confirmation.php" method="POST">
         <div class="form-group">
           <label for="first-name">First name</label>
           <input type="text" class="form-control" id="first-name" placeholder="First name">
@@ -62,11 +56,8 @@
       </form>
 
     <?php 
-      }
-      else
-      // the user has submitted the form
-      {
       // Check if the "from" input field is filled out
+      echo "Thank you for sending us feedback";
       if (isset($_POST["email"]))
         {
         $dest = "kaiyuan.neo@gmail.com";
@@ -77,11 +68,9 @@
         $from = $_POST["email"]; // sender
         // send mail
         mail("kaiyuan.neo@gmail.com", $subject, $message, null, -f$from);
-        echo "Thank you for sending us feedback";
+        
         }
-      }
     ?>
-    </div>
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
