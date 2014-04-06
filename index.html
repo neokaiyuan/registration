@@ -20,6 +20,7 @@
   <body class="site-frame">
     <div>
     <?php
+      echo "Thank you for sending us feedback";
       // display form if user has not clicked submit
       if (!isset($_POST["submit"]))
       {
@@ -62,25 +63,25 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
 
-      <?php 
-  }
-else
-  // the user has submitted the form
-  {
-  // Check if the "from" input field is filled out
-  if (isset($_POST["from"]))
-    {
-    $from = $_POST["from"]; // sender
-    $subject = $_POST["subject"];
-    $message = $_POST["message"];
-    // message lines should not exceed 70 characters (PHP rule), so wrap it
-    $message = wordwrap($message, 70);
-    // send mail
-    mail("webmaster@example.com",$subject,$message,"From: $from\n");
-    echo "Thank you for sending us feedback";
-    }
-  }
-?>
+    <?php 
+      }
+      else
+      // the user has submitted the form
+      {
+      // Check if the "from" input field is filled out
+      if (isset($_POST["from"]))
+        {
+        $from = $_POST["from"]; // sender
+        $subject = $_POST["subject"];
+        $message = $_POST["message"];
+        // message lines should not exceed 70 characters (PHP rule), so wrap it
+        $message = wordwrap($message, 70);
+        // send mail
+        mail("kaiyuan.neo@gmail.com",$subject,$message,"From: $from\n");
+        echo "Thank you for sending us feedback";
+        }
+      }
+    ?>
     </div>
 
 
