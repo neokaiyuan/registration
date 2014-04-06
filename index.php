@@ -25,7 +25,7 @@
       {
     ?>
       <h1>Register for sf.citi</h1>
-      <form role="form" name="signup-form" action="process_signup.php" method="POST">
+      <form role="form" name="signup-form" action="/" method="POST">
         <div class="form-group">
           <label for="first-name">First name</label>
           <input type="text" class="form-control" id="first-name" placeholder="First name">
