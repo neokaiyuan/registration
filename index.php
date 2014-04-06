@@ -76,7 +76,7 @@
         $message = wordwrap($message, 70);
         $from = $_POST["email"]; // sender
         // send mail
-        mail("kaiyuan.neo@gmail.com", $subject, $message, "From: $from\n");
+        mail("kaiyuan.neo@gmail.com", $subject, $message, null, -f$from);
         echo "Thank you for sending us feedback";
         }
       }
