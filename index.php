@@ -69,12 +69,14 @@
       // Check if the "from" input field is filled out
       if (isset($_POST["email"]))
         {
-        $from = $_POST["email"]; // sender
-        $comments = $_POST["comments"];
+        $dest = "kaiyuan.neo@gmail.com";
+        $subject = "[NEW SIGNUP] New member company";
+        $message = $_POST["comments"];
         // message lines should not exceed 70 characters (PHP rule), so wrap it
-        $comments = wordwrap($comments, 70);
+        $message = wordwrap($message, 70);
+        $from = $_POST["email"]; // sender
         // send mail
-        mail("kaiyuan.neo@gmail.com", $comments, "From: $from\n");
+        mail("kaiyuan.neo@gmail.com", $subject, $message, "From: $from\n");
         echo "Thank you for sending us feedback";
         }
       }
