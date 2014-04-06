@@ -17,10 +17,16 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <div class="site-frame">
+  <body class="site-frame">
+    <div>
+    <?php
+      // display form if user has not clicked submit
+      if (!isset($_POST["submit"]))
+      {
+    ?>
+    
       <h1>Register for sf.citi</h1>
-      <form role="form" name="sfciti-signup" action="svangel.com" method="POST">
+      <form role="form" name="signup-form" action="process_signup.php" method="POST">
         <div class="form-group">
           <label for="first-name">First name</label>
           <input type="text" class="form-control" id="first-name" placeholder="First name">
@@ -55,7 +61,29 @@
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
+
+      <?php 
+  }
+else
+  // the user has submitted the form
+  {
+  // Check if the "from" input field is filled out
+  if (isset($_POST["from"]))
+    {
+    $from = $_POST["from"]; // sender
+    $subject = $_POST["subject"];
+    $message = $_POST["message"];
+    // message lines should not exceed 70 characters (PHP rule), so wrap it
+    $message = wordwrap($message, 70);
+    // send mail
+    mail("webmaster@example.com",$subject,$message,"From: $from\n");
+    echo "Thank you for sending us feedback";
+    }
+  }
+?>
     </div>
+
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
