@@ -20,12 +20,10 @@
   <body class="site-frame">
     <div>
     <?php
-      echo "Thank you for sending us feedback";
       // display form if user has not clicked submit
       if (!isset($_POST["submit"]))
       {
     ?>
-    
       <h1>Register for sf.citi</h1>
       <form role="form" name="signup-form" action="process_signup.php" method="POST">
         <div class="form-group">
@@ -69,15 +67,14 @@
       // the user has submitted the form
       {
       // Check if the "from" input field is filled out
-      if (isset($_POST["from"]))
+      if (isset($_POST["email"]))
         {
-        $from = $_POST["from"]; // sender
-        $subject = $_POST["subject"];
-        $message = $_POST["message"];
+        $from = $_POST["email"]; // sender
+        $comments = $_POST["comments"];
         // message lines should not exceed 70 characters (PHP rule), so wrap it
-        $message = wordwrap($message, 70);
+        $comments = wordwrap($comments, 70);
         // send mail
-        mail("kaiyuan.neo@gmail.com",$subject,$message,"From: $from\n");
+        mail("kaiyuan.neo@gmail.com", $comments, "From: $from\n");
         echo "Thank you for sending us feedback";
         }
       }
